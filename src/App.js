@@ -1,3 +1,4 @@
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
 import "./App.css";
 import First from "./First";
@@ -10,18 +11,8 @@ function App() {
   const [formData, setFormData] = useState({
     phone: "",
   });
+  let phone;
   const [page, setPage] = useState(0);
-  const questionArray = [
-    "Enter your mobile number below",
-    "Please enter one time code we have sent to you on your mobile number and set your new numeric PIN",
-  ];
-  const PageArray = ["", ""];
-  const progressbar = ["box1", "box2"];
-  const Display = () => {
-    if (page == 1) {
-      return <OTP formData={formData} setFormData={setFormData} />;
-    }
-  };
 
   return (
     <>
@@ -46,40 +37,10 @@ function App() {
                   <div className="timeline-item"></div>
                   <div className="timeline-item"></div>
                 </div>
-                <span></span>
               </div>
-              <div className="text-center text-slate-400">
-                {questionArray[page]}
-              </div>
-              <form>
-                <div className="text-left text-slate-400 space-y-5">
-                  <label htmlFor="phone">Enter Phone Number</label>
-                  <div>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="number"
-                      className="input"
-                      placeholder="+92 333 2393838"
-                    />
-                  </div>
-                </div>
-              </form>
-              <button
-                className="bg-black w-full text-white p-2"
-                onClick={() => {
-                  if (page === PageArray.length - 1) {
-                    alert("done");
-                  } else {
-                    setPage((currentPage) => currentPage + 1);
-                  }
-                }}
-              >
-                {page === PageArray.length - 1 ? "Submit" : "Next"}
-              </button>
+              <First />
             </div>
           </div>
-          {/* {value == 1 ? <First /> : value == 2 ? <OTP /> : null} */}
         </div>
       </div>
     </>
