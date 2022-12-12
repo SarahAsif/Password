@@ -5,15 +5,6 @@ import First from "./First";
 import OTP from "./OTP";
 
 function App() {
-  // const [value, setValue] = useState(1);
-  const BASEURL = "http://localhost:3000";
-
-  const [formData, setFormData] = useState({
-    phone: "",
-  });
-  let phone;
-  const [page, setPage] = useState(0);
-
   return (
     <>
       <div className="bg-violet-800 h-screen flex text-center">
@@ -22,21 +13,9 @@ function App() {
             Great! We are almost there
           </div>
           <div className="bg-white widths shadow-md shadow-white	">
-            <div className="p-16 space-y-5">
+            <div className="p-16 flex flex-col">
               <div className="text-violet-800 font-semibold text-2xl">
                 Forgot Pin?
-              </div>
-              <div className="timeline">
-                <div
-                  className="timeline-progress"
-                  style={{
-                    width: page === 0 ? "50%" : page == 1 ? "100%" : page == 1,
-                  }}
-                ></div>
-                <div className="timeline-items">
-                  <div className="timeline-item"></div>
-                  <div className="timeline-item"></div>
-                </div>
               </div>
               <First />
             </div>
